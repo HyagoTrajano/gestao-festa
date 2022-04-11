@@ -16,11 +16,10 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 
-@Data
-@Getter
-@Setter
 @Entity
 @Table(name = "tb_festa")
+@Getter
+@Setter
 public class Festa implements Serializable{
 
 	private static final long serialVersionUID = 1L;

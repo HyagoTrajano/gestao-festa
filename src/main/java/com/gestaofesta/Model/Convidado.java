@@ -12,10 +12,11 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 
-@Getter
-@Setter
+
 @Entity
 @Table(name = "tb_convidado")
+@Getter
+@Setter
 public class Convidado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro De Festa</title>
-    <head>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -15,6 +14,7 @@
 </head>
 <body>
     <h3>Cadastrar Festa</h3>
+    <h3><a href="/festas" class="waves-effect waves-light btn"><i class="material-icons right">reorder</i>Festas</a></h3>
     <form class="container" method="post">
         Tipo De Festa:   <select name="tipo_festa">
                             <option value="" disabled selected>Selecione</option>
@@ -28,18 +28,29 @@
                             <option value="formatura-ensino-medio">Formatura Ensino Médio</option>
                             <option value="formatura-ensino-fundamental">Formatura Ensino Fundamental</option>
                           </select>
-        Tema Da Festa:  <input type="text" value="" name="nome_festa" placeholder="informe o tema da festa">
-        Data Da Festa:  <input type="date" value="" name="data_festa">
-        Hora Da Festa:  <input type="time" value="" name="hora_festa">
-        Sala Da Festa:   <select name="sala_festa">
-                            <option value="" disabled selected>Salas</option>
-                            <option value="sala 1">sala 1</option>
-                            <option value="sala 2">sala 2</option>
-                            <option value="sala 3">sala 3</option>
-                            <option value="sala 4">sala 4</option>
-                            <option value="sala 5">sala 5</option>
-                            <option value="sala 6">sala 6</option>
-                     </select><br/>
+        <div class="row">
+            <div class="input-field col s5">
+                Tema Da Festa:  <input type="text" value="" name="nome_festa" placeholder="informe o tema da festa">
+            </div>
+            <div class="input-field col s3">
+                Data Da Festa:  <input type="date" value="" name="data_festa">
+            </div>
+            
+            <div class="input-field col s3">
+                Hora Da Festa:  <input type="time" value="" name="hora_festa">
+            </div>
+            <div class="input-field col s3">
+                Sala Da Festa:   <select name="sala_festa">
+                    <option value="" disabled selected>Salas</option>
+                    <option value="sala 1">sala 1</option>
+                    <option value="sala 2">sala 2</option>
+                    <option value="sala 3">sala 3</option>
+                    <option value="sala 4">sala 4</option>
+                    <option value="sala 5">sala 5</option>
+                    <option value="sala 6">sala 6</option>
+             </select><br/>
+            </div>
+        </div>
         <button class="btn waves-effect waves-light" type="submit" name="action">Salvar Festa
         <i class="material-icons right">add_box</i></button>
     </form>
