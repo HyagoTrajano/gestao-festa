@@ -1,9 +1,12 @@
 package com.gestaofesta.Controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.gestaofesta.Model.Convidado;
 import com.gestaofesta.Model.Festa;
 import com.gestaofesta.Model.Responsavel;
+import com.gestaofesta.Repository.ConvidadoRepository;
 import com.gestaofesta.Repository.FestaRepository;
 import com.gestaofesta.Repository.ResponsavelRepository;
 
@@ -14,6 +17,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -26,6 +30,9 @@ public class FestaController {
     @Autowired
     ResponsavelRepository responsavelRepository;
     
+    @Autowired
+    ConvidadoRepository convidadoRepository;
+
     /*End point para abrir o formulario da Festa*/
     @RequestMapping(value = "/cadFesta", method=RequestMethod.GET)
     public String formFesta(){
@@ -95,4 +102,13 @@ public class FestaController {
 		String codigoConvidadoResponsavel = "" + codigoLongResponsavel;
 		return "redirect:/" + codigoConvidadoResponsavel;
 	}
+
+    @RequestMapping(value="/teste={id_responsavel}", method=RequestMethod.GET)
+    public ModelAndView listaTeste(@PathVariable("id_responsavel") long id_responsavel) {
+        Responsavel responsavel = responsavelRepository.getById(id_responsavel);
+    	ModelAndView mv = new ModelAndView("festa/detalhesResponsavel");
+        mv.addObject("responsavel", responsavel);
+    	return mv;
+    }
+
 }

@@ -31,7 +31,7 @@
 			CPF / CNPJ Do Responsável: <input type="text" value="" name="cpf_cnpj_responsavel" placeholder="AA-00.000.000"/>
             Email Do Responsável: <input type="text" value="" name="email_responsavel" placeholder="contato@exemplo.com"/>
             Contao Do Responsável: <input type="text" value="" name="telefone_reponsavel" placeholder="(DDD)91111-2222"/>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Salvar Responsável
+                <button class="btn waves-effect waves-light" type="submit" name="action">Salvar Convidados
                 <i class="material-icons right">add_box</i></button>
 		</form>
 		</div>
@@ -46,15 +46,17 @@
 				<th>CPF / CNPJ</th>				
 				<th>Email Do Responsável</th>
 				<th>Telefone Do Responsável</th>
+                <th>Convidados</th>
                 <th>Deletar</th>
 			</tr>
 		</thead>
 		<tbody>
     		<tr th:each="responsavel:${responsavel}">
-				<td><span th:text="${responsavel.nome_responsavel}"></span></td>
+	    		<td><span th:text="${responsavel.nome_responsavel}"></span></td>
 	    		<td><span th:text="${responsavel.cpf_cnpj_responsavel}"></span></td>
 	    		<td><span th:text="${responsavel.email_responsavel}"></span></td>
 	    		<td><span th:text="${responsavel.telefone_reponsavel}"></span></td>
+                <td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('FC#listaTeste').arg(0, responsavel.id_responsavel)).build()}"><i class="material-icons left">dehaze</i></a></td>	    		
                 <td><a class="waves-effect waves-light btn-small" th:href="${(#mvc.url('FC#deletarResponsavel').arg(0, responsavel.id_responsavel)).build()}"><i class="material-icons left">delete</i></a></td>	    		
 	    	</tr>
     	</tbody>
