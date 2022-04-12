@@ -3,10 +3,8 @@ package com.gestaofesta.Controller;
 import java.util.List;
 import java.util.Optional;
 
-import com.gestaofesta.Model.Convidado;
 import com.gestaofesta.Model.Festa;
 import com.gestaofesta.Model.Responsavel;
-import com.gestaofesta.Repository.ConvidadoRepository;
 import com.gestaofesta.Repository.FestaRepository;
 import com.gestaofesta.Repository.ResponsavelRepository;
 
@@ -30,9 +28,7 @@ public class FestaController {
     @Autowired
     ResponsavelRepository responsavelRepository;
     
-    @Autowired
-    ConvidadoRepository convidadoRepository;
-
+ 
     /*End point para abrir o formulario da Festa*/
     @RequestMapping(value = "/cadFesta", method=RequestMethod.GET)
     public String formFesta(){
@@ -103,7 +99,7 @@ public class FestaController {
 		return "redirect:/" + codigoConvidadoResponsavel;
 	}
 
-    @RequestMapping(value="/teste={id_responsavel}", method=RequestMethod.GET)
+    @RequestMapping(value="/convidado={id_responsavel}", method=RequestMethod.GET)
     public ModelAndView listaTeste(@PathVariable("id_responsavel") long id_responsavel) {
         Responsavel responsavel = responsavelRepository.getById(id_responsavel);
     	ModelAndView mv = new ModelAndView("festa/detalhesResponsavel");

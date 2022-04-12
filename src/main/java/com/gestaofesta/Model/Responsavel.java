@@ -41,9 +41,4 @@ public class Responsavel{
     @ManyToOne
     @JoinColumn(name = "id_festa_responsavel")
     private Festa festa;
-    
-    @OneToMany
-    @JoinColumn(name = "id_responsavel_convidado")
-    private List<Convidado> convidado;
-    /* Foi relaizado o getter e o setter dos atributos com a dependencia lombok com o (@Getter) e o (@Setter) */
 }
